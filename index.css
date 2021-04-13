@@ -1,0 +1,112 @@
+/* index */
+
+body{
+
+    background: url("imagenes/buenosaires.png")no-repeat right 3%;
+    background-size: cover;
+    height: 800px;
+    background-position-x: 50%;
+    
+}
+
+@media (min-width: 70px) {
+  body {
+    height: 800px;
+
+  }  
+
+}
+.nav{
+    
+    margin-bottom: 50px;
+    
+}
+
+img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 5rem;
+}
+
+p{
+
+  text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+  color: white;
+  font-size: 20px;
+  font-family: EuclidWU-Regular, Helvetica ;
+  
+  
+}
+
+
+h1{
+   padding: 10px;
+   margin-top: 5px;
+   margin-left: 10px;
+   color: white;
+   
+}
+h2{
+    font-family: EuclidWU-Regular, Helvetica ;
+    
+    padding-bottom: 20px;
+    color: white;
+    text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+}
+
+.encabezdo{
+    text-align:center;
+    margin-top: 20px;
+    color: white;  
+}
+
+.row{
+    box-shadow: 10px 10px 10px 10px black;
+}
+
+.btnFormulario{
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+.resultado{
+    text-align: center;
+    margin: 50px;
+     
+}
+.col-md-4{
+    margin-top: 40px;
+}
+
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0px; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
+
+
+
+/* muestra div */
+
+
+#comenzar{
+    position: fixed;
+    top: 40%;
+    left: 10%;
+    
+
+  
+}
+
+/* estilo infoenvio */
+
+
+
