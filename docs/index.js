@@ -1,5 +1,5 @@
 $("#divGeneral").hide();
-  
+
 $("#btnMostar").click(() => {
   $("#divGeneral").slideDown(2000);
   $("#comenzar").hide()
@@ -42,13 +42,13 @@ function btnCalcular() {
 
       let ver = $("#resault").hide()
       ver.html("monto total a pagar $" + totalEnvio)
-      
+
       sessionStorage.setItem("totalenvio", JSON.stringify(totalEnvio))
 
       $("#resault").css("font-size", "30px")
       ver.slideDown('fast');
       $("#enviar").slideDown(2000)
-        
+
 
     }
   }
@@ -108,8 +108,27 @@ enviarForm.click(() => {
   sessionStorage.setItem("personaRecibe", JSON.stringify(recibe))
 
 })
+//api de valor dolar
+
+const URLJSON = "https://www.dolarsi.com/api/api.php?type=valoresprincipales"
 
 
-
-
+$("#cotiza").click(() => {
+  $.getJSON(URLJSON, function (precio, estado) {
+    if (estado === "success") {
+      let misDatos = precio;
+      for (let i = 0; i <= 1; i++) {
+        let elemento = misDatos[i].casa
+        $(".muestraDolar").append(`<div style="grid-auto-flow: row;">
+                                <p> ${elemento.nombre}</p>
+                                <p>${elemento.venta}</p>
+                                <p> ${elemento.compra}</p>                         
+                            </div>`)
+          .delay(2000)
+          .fadeOut(9000)
+      }
+    }
+  });
+  
+});
 
