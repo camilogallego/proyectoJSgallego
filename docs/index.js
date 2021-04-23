@@ -41,7 +41,7 @@ function btnCalcular() {
       let totalEnvio = suma(montoEnvio, costoEnvio(montoEnvio));
 
       let ver = $("#resault").hide()
-      ver.html("monto total a pagar $" + totalEnvio)
+      ver.html("monto total a pagar $" + totalEnvio + " " + "dolares")
 
       sessionStorage.setItem("totalenvio", JSON.stringify(totalEnvio))
 
@@ -55,22 +55,23 @@ function btnCalcular() {
 
 }
 
-
 class persona {
-  constructor(nombre, apellido, nacionalidad, direccion) {
+  constructor(nombre, apellido, nacionalidad, direccion, celular) {
     this.nombre = nombre;
     this.apellido = apellido;
     this.nacionalidad = nacionalidad;
     this.direccion = direccion;
+    this.celular = celular;
   }
 }
 
 class persona2 {
-  constructor(nombre, apellido, nacionalidad, direccion) {
+  constructor(nombre, apellido, nacionalidad, direccion,celular) {
     this.nombre2 = nombre;
     this.apellido2 = apellido;
     this.nacionalidad2 = nacionalidad;
     this.direccion2 = direccion;
+    this.celular2 = celular;
   }
 }
 
@@ -85,6 +86,8 @@ let nombreEnvia = $("#nombre");
 let apellidoEnvia = $("#apellido");
 let direccionEnvia = $("#direccion");
 let nacionalidadEnvia = $("#nacionalidad");
+let celularEnvia = $("#celular");
+
 
 
 // controles persona que recibe
@@ -92,43 +95,23 @@ let nombreRecibe = $("#nombreR");
 let apellidoRecibe = $("#apellidoR");
 let direccionRecibe = $("#direccionR");
 let nacionalidadRecibe = $("#nacionalidadR");
+let celularRecibe = $("#celularR");
 
 // muestra formularios
 let enviarForm = $("#enviar")
 enviarForm.click(() => {
 
-  let personaEnvia = new persona(nombreEnvia.val(), apellidoEnvia.val(), direccionEnvia.val(), nacionalidadEnvia.val())
+  let personaEnvia = new persona(nombreEnvia.val(), apellidoEnvia.val(), direccionEnvia.val(), nacionalidadEnvia.val(), celularEnvia.val())
   usuario.push(personaEnvia)
 
   sessionStorage.setItem("personaEnvia", JSON.stringify(usuario))
 
-  let personaRecibe = new persona2(nombreRecibe.val(), apellidoRecibe.val(), direccionRecibe.val(), nacionalidadRecibe.val())
+  let personaRecibe = new persona2(nombreRecibe.val(), apellidoRecibe.val(), direccionRecibe.val(), nacionalidadRecibe.val(),celularRecibe.val())
   recibe.push(personaRecibe)
 
   sessionStorage.setItem("personaRecibe", JSON.stringify(recibe))
 
 })
-//api de valor dolar
-
-const URLJSON = "https://www.dolarsi.com/api/api.php?type=valoresprincipales"
 
 
-$("#cotiza").click(() => {
-  $.getJSON(URLJSON, function (precio, estado) {
-    if (estado === "success") {
-      let misDatos = precio;
-      for (let i = 0; i <= 1; i++) {
-        let elemento = misDatos[i].casa
-        $(".muestraDolar").append(`<div style="grid-auto-flow: row;">
-                                <p> ${elemento.nombre}</p>
-                                <p>${elemento.venta}</p>
-                                <p> ${elemento.compra}</p>                         
-                            </div>`)
-          .delay(2000)
-          .fadeOut(9000)
-      }
-    }
-  });
-  
-});
 
